@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <script>
+        function updateContent() {
+            var h1_txt_1 = "Родина Spheniscidae";
+            var h1_txt_2 = "Королівський пінгвін";
+            var h1_txt_3 = "Aptenodytes patagonica";
+            var p_txt_1 = "Наряду з імператорськими, одні з найбільших за розмірами від усіх пінгвінів. Щільне та густе оперення, підшкірний шар жиру – усе це допомагає їм витримувати холод Антарктики. Вони відкладають одне яйце. Під час насиджування тримають його між лапами у складці шкіри.";
+
+            var img_txt_1 = "pinguin.gif";
+            var audio_exhibit = "penguin_sound.wav";
+            var audio_info = "pinguin.wav";
+
+            document.getElementById("h1_el_1").textContent = h1_txt_1;
+            document.getElementById("h1_el_2").textContent = h1_txt_2;
+            document.getElementById("h1_el_3").textContent = h1_txt_3;
+            document.getElementById("p_el_1").textContent = p_txt_1;
+            document.getElementById("img_el_1").src = img_txt_1;
+            document.getElementById("audio_exhibit").src = audio_exhibit;
+            document.getElementById("audio_info").src = audio_info;
+        }
+    </script>
+  <title>Зоомузей</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
     body {
@@ -75,9 +96,9 @@
     }
   </style>
 </head>
-<body>
-  <audio id="audio_info" src="pinguin.wav"></audio>
-  <audio id="audio_exhibit" src="penguin_sound.wav"></audio>
+<body onload="updateContent()">
+  <audio id="audio_exhibit"></audio>
+  <audio id="audio_info"></audio>
   <div class="exhibit_gif_3d" onclick="toggleaudio_exhibit()">
     <div class="overlay">
       <img class="overlay-image" src="hands_transp_white.gif">
@@ -85,12 +106,16 @@
     <div class="overlay_touch">
       <img class="overlay-image2" src="circle_tran.gif">
     </div>
-    <img class="gif" src="pinguin.gif">
+    <img class="gif" id="img_el_1">
   </div>
 
   <div class="center-text" onclick="toggleaudio_info()">
-    <h1><b><i>Родина Spheniscidae</i><br>Королівський пінгвін<br>Aptenodytes patagonica</b></h1>
-    <p>Наряду з імператорськими, одні з найбільших за розмірами від усіх пінгвінів. Щільне та густе оперення, підшкірний шар жиру – усе це допомагає їм витримувати холод Антарктики. Вони відкладають одне яйце. Під час насиджування тримають його між лапами у складці шкіри.</p>
+    <h1>
+    <i><span id="h1_el_1"></span></i><br>
+    <span id="h1_el_2"></span><br>
+    <span id="h1_el_3"></span>
+    </h1>
+    <p id="p_el_1"></p>
   </div>
   <script>
     var audio = document.getElementById('audio_info');
@@ -172,4 +197,4 @@
     }, 0);
   </script>
 </body>
-</html>
+</html>   
